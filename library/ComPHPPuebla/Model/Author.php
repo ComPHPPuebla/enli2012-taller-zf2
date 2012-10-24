@@ -17,6 +17,16 @@ class Author
 	 * @var string
 	 */
 	protected $biography;
+	
+	/**
+	 * @param string $firstName
+	 * @param string $lastName
+	 */
+	public function __construct($firstName, $lastName)
+	{
+		$this->setFirstName($firstName);
+		$this->setLastName($lastName);
+	}
 
 	/**
 	 * @return string

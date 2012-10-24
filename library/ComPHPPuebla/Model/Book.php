@@ -18,6 +18,19 @@ class Book
 	 */
 	protected $isbn;
 	
+	/**
+	 * @var ComPHPPuebla\Model\Author
+	 */
+	protected $author;
+	
+	/**
+	 * @param ComPHPPuebla\Model\Author $author
+	 */
+	public function __construct(Author $author)
+	{
+		$this->setAuthor($author);
+	}
+	
 	/** 
 	 * @return string 
 	 */
@@ -65,5 +78,20 @@ class Book
 	{
 	    $this->isbn = $isbn;
 	}
-	
+
+	/**
+	 * @return ComPHPPuebla\Model\Author
+	 */
+	public function getAuthor()
+	{
+	    return $this->author;
+	}
+
+	/**
+	 * @param ComPHPPuebla\Model\Author $author
+	 */
+	public function setAuthor(Author $author)
+	{
+	    $this->author = $author;
+	}
 }

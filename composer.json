@@ -6,8 +6,7 @@
     	}
 	],
 	"require": {
-		"zendframework/zend-loader": "2.0.*",
-		"zendframework/zend-console": "2.0.*",
-		"zendframework/zend-file": "2.0.*"
+		"zendframework/zend-di": "2.0.*",
+		"zendframework/zend-eventmanager": "2.0.*"
 	}
 }
