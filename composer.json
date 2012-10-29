@@ -1,4 +1,8 @@
 {
+	"name": "comphppuebla/zf2ws",
+    "description": "Taller de Zend Framework 2 Comunidad PHP Puebla",
+    "homepage": "http://www.comunidadphppuebla.com",
+    "license": "MIT",
 	"repositories": [
 		{
 	        "type": "composer",
