@@ -25,29 +25,9 @@ use Zend\Loader\StandardAutoloader;
  * --overwrite|-w               Whether or not to overwrite existing autoload
  *                              file
  */
-/*
-$zfLibraryPath = getenv('LIB_PATH') ? getenv('LIB_PATH') : __DIR__ . '/../vendor/zendframework/zend-loader';
-if (is_dir($zfLibraryPath)) {
-    // Try to load StandardAutoloader from library
-    if (false === include($zfLibraryPath . '/Zend/Loader/StandardAutoloader.php')) {
-        echo 'Unable to locate autoloader via library; aborting' . PHP_EOL;
-        exit(2);
-    }
-} else {
-    // Try to load StandardAutoloader from include_path
-    if (false === include('Zend/Loader/StandardAutoloader.php')) {
-        echo 'Unable to locate autoloader via include_path; aborting' . PHP_EOL;
-        exit(2);
-    }
-}
-*/
-$libraryPath = getcwd();
-/*
 
-// Setup autoloading
-$loader = new StandardAutoloader(array('autoregister_zf' => true));
-$loader->register();
-*/
+$libraryPath = getcwd();
+
 //Use Composer autoloading since we're not using the whole framework
 require "../vendor/autoload.php";
 

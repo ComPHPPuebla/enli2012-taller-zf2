@@ -1,7 +1,7 @@
 <?php
 namespace ComPHPPuebla\Model;
 
-class Book 
+class Book
 {
 	/**
 	 * @var string
@@ -12,14 +12,14 @@ class Book
 	 * @var string
 	 */
 	protected $description;
-	
+
 	/**
-	 * string
+	 * @var string
 	 */
 	protected $isbn;
-	
-	/** 
-	 * @return string 
+
+	/**
+	 * @return string
 	 */
 	public function getTitle()
 	{
@@ -35,7 +35,7 @@ class Book
 	}
 
 	/**
-	 * @return string  
+	 * @return string
 	 */
 	public function getDescription()
 	{
@@ -51,7 +51,7 @@ class Book
 	}
 
 	/**
-	 * @return string 
+	 * @return string
 	 */
 	public function getIsbn()
 	{
@@ -65,5 +65,5 @@ class Book
 	{
 	    $this->isbn = $isbn;
 	}
-	
+
 }
