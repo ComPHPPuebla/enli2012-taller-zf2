@@ -1,10 +1,9 @@
 {
-    "name": "comphppuebla/skeleton-application",
-    "description": "Taller de Zend Framework 2 ENLi 2012",
+	"name": "comphppuebla/zf2ws",
+    "description": "Taller de Zend Framework 2 Comunidad PHP Puebla",
+    "homepage": "http://www.comunidadphppuebla.com",
     "license": "MIT",
-    "homepage": "http://www.comunidadphppuebla.com/",
     "require": {
-        "php": ">=5.3.3",
-        "zendframework/zendframework": "2.*"
+        "php": ">=5.3.3"
     }
 }
