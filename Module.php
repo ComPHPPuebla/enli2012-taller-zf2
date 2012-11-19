@@ -23,18 +23,18 @@ class Module
     {
         return include __DIR__ . '/config/module.config.php';
     }
-	
+
 	public function getServiceConfig()
     {
         return array(
             'factories' => array(
                 'BookStore\Model\AuthorTable' =>  function($sm) {
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-                    $table     = new AuthorTable($dbAdapter);
+                    $table = new AuthorTable($dbAdapter);
                     return $table;
                 },
             ),
         );
     }
-	
+
 }

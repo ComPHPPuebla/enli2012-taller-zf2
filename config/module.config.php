@@ -16,7 +16,7 @@ return array(
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'BookStore\Controller\Album',
+                        'controller' => 'BookStore\Controller\Author',
                         'action'     => 'index',
                     ),
                 ),
