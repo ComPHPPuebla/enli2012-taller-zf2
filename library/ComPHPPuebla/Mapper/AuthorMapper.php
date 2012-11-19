@@ -1,15 +1,24 @@
 <?php
 namespace ComPHPPuebla\Mapper;
 
-use Zend\EventManager\EventManager;
+use \Zend\EventManager\EventManager;
 use \Zend\Log\Logger;
 
 class AuthorMapper
 {
+    /**
+     * @var \Zend\EventManager\EventManager
+     */
 	protected $eventManager;
-	
+
+	/**
+	 * @var \Zend\Log\Logger
+	 */
 	protected $logger;
-	
+
+	/**
+	 * @return \Zend\EventManager\EventManager
+	 */
 	public function getEventManager()
 	{
 		if (!$this->eventManager) {
@@ -17,7 +26,7 @@ class AuthorMapper
 		}
 		return $this->eventManager;
 	}
-	
+
 	/**
 	 * @return \Zend\Log\Logger
 	 */
@@ -33,7 +42,7 @@ class AuthorMapper
 	{
 	    $this->logger = $logger;
 	}
-	
+
 	public function findById($authorId)
 	{
 		$this->getEventManager()
@@ -42,5 +51,5 @@ class AuthorMapper
 		$this->getEventManager()
 			 ->trigger('findById.post', $this, array('authorId' => $authorId));
 	}
-		
+
 }
