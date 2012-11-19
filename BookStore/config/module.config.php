@@ -7,7 +7,7 @@ return array(
     ),
 	'router' => array(
         'routes' => array(
-            'album' => array(
+            'author' => array(
                 'type'    => 'segment',
                 'options' => array(
                     'route'    => '/author[/:action][/:id]',
@@ -16,21 +16,11 @@ return array(
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Author\Controller\Album',
+                        'controller' => 'BookStore\Controller\Album',
                         'action'     => 'index',
                     ),
                 ),
             ),
-			'home' => array(
-				'type' => 'Zend\Mvc\Router\Http\Literal',
-				'options' => array(
-					'route'    => '/',
-					'defaults' => array(
-						'controller' => 'Author\Controller\Album',
-						'action'     => 'index',
-					),
-				),
-			),
         ),
     ),
     'view_manager' => array(
