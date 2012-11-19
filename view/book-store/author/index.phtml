@@ -1,22 +1,22 @@
 <?php
-$title = 'Autores';
+$title = 'Authors';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 
 <table class="table">
 <tr>
-    <th>Title</th>
-    <th>Artist</th>
+    <th>First name</th>
+    <th>Last name</th>
     <th>&nbsp;</th>
 </tr>
 <?php foreach ($authors as $author) : ?>
 <tr>
     <td><?php echo $this->escapeHtml($author->getFirstName());?></td>
-    <td><?php echo $this->escapeHtml($album->getLastName());?></td>
+    <td><?php echo $this->escapeHtml($author->getLastName());?></td>
     <td>
-        <a href="<?php echo $this->url('album', array('action'=>'show', 'id' => $album->id)) ?>">Mostrar</a>
+        <a href="<?php echo $this->url('author', array('action'=>'show', 'id' => $author->getAuthorId())) ?>">Show</a>
     </td>
 </tr>
-<?php endforeach; ?>
+<?php endforeach ?>
 </table>
