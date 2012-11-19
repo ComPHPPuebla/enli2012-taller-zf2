@@ -88,19 +88,19 @@ Como último paso debemos agregar la configuración a nuestra base de datos, par
 agregamos los datos de configuración  para el `Zend\Db\Adapter\Adapter` en el archivo
 `config/autoload/global.php`
 
-return array(
-    'db' => array(
-        'driver'         => 'Pdo',
-        'driver_options' => array(
-            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
+    return array(
+        'db' => array(
+            'driver'         => 'Pdo',
+            'driver_options' => array(
+                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
+            ),
         ),
-    ),
-    'service_manager' => array(
-        'factories' => array(
-            'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
+        'service_manager' => array(
+            'factories' => array(
+                'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
+            ),
         ),
-    ),
-);
+    );
 
 Y agregamos la información más sensitiva como usuario, password, nombre de la base de 
 datos en el archivo `config\autoload\local.php`, por default el nombre del archivo es
