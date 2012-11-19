@@ -4,11 +4,15 @@
     "homepage": "http://www.comunidadphppuebla.com",
     "license": "MIT",
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*"
     },
 	"autoload": {
 	    "psr-0": {
-	        "BookStore": "src"
-	    }
+	        "BookStore": "src/"
+	    },
+	    "classmap": [
+             "./"
+         ]
 	}
 }
