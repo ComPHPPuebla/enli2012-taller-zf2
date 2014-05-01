@@ -40,8 +40,7 @@ class AuthorController extends AbstractActionController
     public function getAuthorTable()
     {
         if (!$this->authorTable) {
-            $sl = $this->getServiceLocator();
-            $this->authorTable = $sl->get('BookStore\Model\AuthorTable');
+            $this->authorTable = $this->getServiceLocator()->get('BookStore\Model\AuthorTable');
         }
 
         return $this->authorTable;

@@ -1,8 +1,6 @@
 <?php
 namespace BookStore\Model;
 
-use Zend\InputFilter\InputFilter;
-
 class Author
 {
     /**

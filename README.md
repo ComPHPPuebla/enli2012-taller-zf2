@@ -16,7 +16,7 @@ $ curl -s http://getcomposer.org/installer | php
 Una vez instalado creamos el proyecto, usando como base `ZendSkeletonApplication`
 
 ```bash
-$ php composer.phar create-project zendframework/skeleton-application zf2
+$ php composer.phar create-project -s dev zendframework/skeleton-application zf2
 ```
 
 Esto creará una carpeta llamada `zf2` con los archivos necesarios para instalar nuestro 
@@ -25,23 +25,27 @@ módulo. Para una descripción mas detallada sobre la instalación de
 
 * [ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication)
 
-Para mantener la explicación lo más simple posible, no crearemos un host virtual, solo
-modificaremos el archivo `.htaccess` para que las reglas de reescritura se apliquen al 
-directorio `public` de nuestra aplicación.
+El siguiente paso es crear un host virtual con la siguiente configuración.
 
 ```apache
-RewriteEngine On
-RewriteBase /zf2/public  #Add this line
-RewriteCond %{REQUEST_FILENAME} -s [OR]
-RewriteCond %{REQUEST_FILENAME} -l [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^.*$ - [NC,L]
-RewriteRule ^.*$ index.php [NC,L]
+<VirtualHost *:80>
+  ServerName zf2.dev
+
+  DocumentRoot /var/www/zf2/public
+
+  <Directory /var/www/zf2/public>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+  </Directory>
+
+</VirtualHost>
 ```
 
 Verifica que puedes acceder a tu aplicación 
 
-* [http://localhost/zf2/public/](http://localhost/zf2/public/)
+* [http://zf2.dev](http://zf2.dev)
 
 El siguiente paso es instalar el módulo, modifica el archivo `composer.json` agregando 
 como dependencia el módulo de este taller (`BookStore`):
@@ -72,7 +76,12 @@ $ php composer.phar update
 
 Al finalizar deberás tener dentro de la carpeta `vendor` el siguiente archivo 
 `vendor/comphppuebla/zf2ws/data/sql/database.sql` el cual debes ejecutar para crear la 
-base de datos, el usuario de la base de datos y algunos datos de ejemplo.
+base de datos, el usuario de la base de datos y algunos datos de ejemplo (reemplaza los valores
+de usuario y contraseña).
+
+```bash
+$ mysql --user=root --password="root" --default-character-set=utf8 < vendor/comphppuebla/zf2ws/data/sql/database.sql
+```
 
 El siguiente paso es registrar el módulo en el archivo 
 `config/autoload/application.config.php` para que el `ModuleManager` lo pueda inicializar
@@ -82,7 +91,7 @@ y configurar.
 return array(
     'modules' => array(
         'Application',
-        'BookStore',  // Register the module
+        'BookStore',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
@@ -136,8 +145,8 @@ return array(
 Para comprobar el correcto funcionamiento del módulo `BookStore` abre las siguientes
 direcciones:
 
-* [http://localhost/zf2/public/author](http://localhost/zf2/public/author)
-* [http://localhost/zf2/public/author/show/1](http://localhost/zf2/public/author/show/1)
+* [http://zf2.dev/author](http://zf2.dev/author)
+* [http://zf2.dev/author/show/1](http://zf2.dev/author/show/1)
 
 La primera muestra la lista de autores completa y la segunda muestra los datos del autor
 con ID 1.
