@@ -28,23 +28,21 @@ class AuthorTable extends AbstractTableGateway
      */
     public function fetchAll()
     {
-        $resultSet = $this->select();
-        return $resultSet;
+        return $this->select();
     }
 
     /**
-     * @param int $id
+     * @param  int        $id
      * @throws \Exception
      */
     public function getAuthor($id)
     {
-        $id  = (int) $id;
-        $rowset = $this->select(array('author_id' => $id,));
-        $row = $rowset->current();
-        if (!$row) {
-            throw new \Exception("Could not find row $id");
+        $rowset = $this->select(array('author_id' => (int) $id));
+
+        if (!($row = $rowset->current())) {
+            throw new \Exception("Could not find row with ID: $id");
         }
+
         return $row;
     }
-
 }

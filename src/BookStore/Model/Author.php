@@ -1,10 +1,7 @@
 <?php
 namespace BookStore\Model;
 
-use Zend\InputFilter\Factory as InputFactory;
 use Zend\InputFilter\InputFilter;
-use Zend\InputFilter\InputFilterAwareInterface;
-use Zend\InputFilter\InputFilterInterface;
 
 class Author
 {
@@ -84,9 +81,8 @@ class Author
     /**
      * @return array
      */
-	public function getArrayCopy()
+    public function getArrayCopy()
     {
         return get_object_vars($this);
     }
-
 }

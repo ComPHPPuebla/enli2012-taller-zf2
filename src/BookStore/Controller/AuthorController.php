@@ -12,14 +12,14 @@ class AuthorController extends AbstractActionController
     /**
      * @var \BookStore\Model\AuthorTable
      */
-	protected $authorTable;
+    protected $authorTable;
 
-	/**
-	 * Retrieve the list of authors
-	 */
+    /**
+     * Retrieve the list of authors
+     */
     public function indexAction()
     {
-		return new ViewModel(array(
+        return new ViewModel(array(
             'authors' => $this->getAuthorTable()->fetchAll(),
         ));
     }
@@ -29,21 +29,21 @@ class AuthorController extends AbstractActionController
      */
     public function showAction()
     {
-		$id = (int) $this->params()->fromRoute('id', 0);
-        $author = $this->getAuthorTable()->getAuthor($id);
+        $author = $this->getAuthorTable()->getAuthor((int) $this->params()->fromRoute('id', 0));
+
         return array('author' => $author,);
     }
 
     /**
      * @return \BookStore\Model\AuthorTable
      */
-	public function getAuthorTable()
+    public function getAuthorTable()
     {
         if (!$this->authorTable) {
-            $sm = $this->getServiceLocator();
-            $this->authorTable = $sm->get('BookStore\Model\AuthorTable');
+            $sl = $this->getServiceLocator();
+            $this->authorTable = $sl->get('BookStore\Model\AuthorTable');
         }
+
         return $this->authorTable;
     }
-
 }

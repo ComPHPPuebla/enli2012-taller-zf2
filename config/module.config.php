@@ -5,7 +5,7 @@ return array(
             'BookStore\Controller\Author' => 'BookStore\Controller\AuthorController',
         ),
     ),
-	'router' => array(
+    'router' => array(
         'routes' => array(
             'author' => array(
                 'type'    => 'segment',
