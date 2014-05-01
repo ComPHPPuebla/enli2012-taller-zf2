@@ -1,5 +1,5 @@
 {
-	"name": "comphppuebla/zf2ws",
+    "name": "comphppuebla/zf2ws",
     "description": "Taller de Zend Framework 2 Comunidad PHP Puebla",
     "homepage": "http://www.comunidadphppuebla.com",
     "license": "MIT",
@@ -7,12 +7,12 @@
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.*"
     },
-	"autoload": {
-	    "psr-0": {
-	        "BookStore": "src/"
-	    },
-	    "classmap": [
-             "./"
-         ]
-	}
+    "autoload": {
+        "psr-0": {
+            "BookStore": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
+    }
 }
